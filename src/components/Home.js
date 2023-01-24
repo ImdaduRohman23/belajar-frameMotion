@@ -6,16 +6,17 @@ const Home = () => {
   return (
     <motion.div 
       className="home container"
-      animate={{rotate: 360}}
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
     >
       <motion.h2
-        animate={{x: 300, fontSize: 50, }}
+        animate={{}}
       >
         Welcome to Pizza Joint
       </motion.h2>
       <Link to="/base">
         <motion.button 
-          animate={{scale: 2}}
+          animate={{}}
         >
           Create Your Pizza
         </motion.button>
