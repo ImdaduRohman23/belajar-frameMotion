@@ -24,7 +24,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className='app'>
       <Header />
       <Switch>
         <Route path="/base">
@@ -40,7 +40,7 @@ function App() {
           <Home />
         </Route>
       </Switch>
-    </>
+    </div>
   );
 }
 
