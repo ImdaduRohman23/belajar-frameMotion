@@ -2,14 +2,36 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+const containerVariant = {
+  hidden: {
+    x: '100vw',
+    opacity: 0
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      delay:0.5, 
+      type:'tween'}
+  }
+}
+
+const nextVariant = {
+  hidden: {x: '-100vw'},
+  visible: {
+    x: 0,
+    transition: {type:'spring', stiffness:120}
+  }
+}
+
 const Base = ({ addBase, pizza }) => {
   const bases = ['Classic', 'Thin & Crispy', 'Thick Crust'];
 
   return (
     <motion.div className="base container"
-      initial={{x: '100vw'}}
-      animate={{x: 0}}
-      transition={{delay:0.5, type:'tween'}}
+      variants={containerVariant}
+      initial="hidden"
+      animate="visible"
     >
 
       <h3>Step 1: Choose Your Base</h3>
@@ -31,9 +53,10 @@ const Base = ({ addBase, pizza }) => {
 
       {pizza.base && (
         <motion.div className="next"
-          initial={{x: '-100vw'}}
-          animate={{x: 0}}
-          transition={{type:'spring', stiffness:120}}
+        variants={nextVariant}
+          // initial="hidden"
+          // animate="visible"
+          // initial dan animate tidak perlu ditulis lagi karena sudang iclude ke parentnya
         >
           <Link to="/toppings">
             <motion.button
