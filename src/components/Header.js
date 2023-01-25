@@ -20,6 +20,7 @@ const Header = () => {
         className="title"
         initial={{y: -250}}
         animate={{y: 0}}
+        transition={{delay:0.5, type:'spring', stiffness:120}} //type default 'spring'
       >
         <h1>Pizza Joint</h1>
       </motion.div>
